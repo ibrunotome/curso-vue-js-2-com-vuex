@@ -1,3 +1,5 @@
+import event from '../event';
+
 export default {
     template: `
         <div>
@@ -49,6 +51,11 @@ export default {
             }
         }
     },
+    mounted() {
+        event.$on('get-times', (times) => {
+            this.initJogo(times);
+        })
+    },
     methods: {
         fimJogo() {
             let timeAdversario = this.novoJogo.fora.time;
@@ -56,7 +63,7 @@ export default {
             let golsAdversario = +this.novoJogo.fora.gols;
 
             this.novoJogo.casa.time.fimJogo(timeAdversario, gols, golsAdversario);
-            this.$parent.showView('tabela');
+            event.$emit('show-time-list');
         },
         initJogo(times) {
             let indexCasa = Math.floor(Math.random() * 20);

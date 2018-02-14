@@ -1,5 +1,6 @@
 import { Time } from "../time";
 import _ from 'lodash';
+import event from '../event';
 
 export default {
     template: `
@@ -10,6 +11,7 @@ export default {
             <br><br>
             <input type="text"
                    class="form-control"
+                   autofocus
                    v-model="filter">
             <table class="table table-striped">
                 <thead>
@@ -71,10 +73,8 @@ export default {
     },
     methods: {
         showNovoJogo() {
-            this.$parent.showView('novoJogo');
-            setTimeout(() => {
-                this.$parent.$children[1].initJogo(this.times);
-            });
+            event.$emit('show-time-novo-jogo');
+            event.$emit('get-times', this.times);
         },
         sortBy(coluna) {
             this.order.keys = coluna;
