@@ -51,22 +51,21 @@ export default {
     },
     methods: {
         fimJogo() {
-            let timeAdversario = this.novoJogo.fora.time
-            let gols = +this.novoJogo.casa.gols
-            let golsAdversario = +this.novoJogo.fora.gols
+            let timeAdversario = this.novoJogo.fora.time;
+            let gols = +this.novoJogo.casa.gols;
+            let golsAdversario = +this.novoJogo.fora.gols;
 
-            this.novoJogo.casa.time.fimJogo(timeAdversario, gols, golsAdversario)
-            this.showView('tabela')
+            this.novoJogo.casa.time.fimJogo(timeAdversario, gols, golsAdversario);
+            this.$parent.showView('tabela');
         },
-        createNovoJogo() {
-            let indexCasa = Math.floor(Math.random() * 20)
-            let indexFora = Math.floor(Math.random() * 20)
+        initJogo(times) {
+            let indexCasa = Math.floor(Math.random() * 20);
+            let indexFora = Math.floor(Math.random() * 20);
 
-            this.novoJogo.casa.time = this.times[indexCasa]
-            this.novoJogo.casa.gols = 0
-            this.novoJogo.fora.time = this.times[indexFora]
-            this.novoJogo.fora.gols = 0
-            this.showView('novoJogo')
+            this.novoJogo.casa.time = times[indexCasa];
+            this.novoJogo.casa.gols = 0;
+            this.novoJogo.fora.time = times[indexFora];
+            this.novoJogo.fora.gols = 0;
         },
     }
 };

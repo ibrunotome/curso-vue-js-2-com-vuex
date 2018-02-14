@@ -6,7 +6,7 @@ export default {
         <div>
             <a href="#"
                class="btn btn-primary"
-               @click.prevent="createNovoJogo">Novo jogo</a>
+               @click.prevent="showNovoJogo">Novo jogo</a>
             <br><br>
             <input type="text"
                    class="form-control"
@@ -70,23 +70,20 @@ export default {
         }
     },
     methods: {
-        createNovoJogo() {
-            let indexCasa = Math.floor(Math.random() * 20)
-            let indexFora = Math.floor(Math.random() * 20)
-
-            this.novoJogo.casa.time = this.times[indexCasa]
-            this.novoJogo.casa.gols = 0
-            this.novoJogo.fora.time = this.times[indexFora]
-            this.novoJogo.fora.gols = 0
+        showNovoJogo() {
+            this.$parent.showView('novoJogo');
+            setTimeout(() => {
+                this.$parent.$children[1].initJogo(this.times);
+            });
         },
         sortBy(coluna) {
-            this.order.keys = coluna
-            this.order.sort = this.order.sort == 'desc' ? 'asc' : 'desc'
+            this.order.keys = coluna;
+            this.order.sort = this.order.sort === 'desc' ? 'asc' : 'desc';
         }
     },
     computed: {
         timesFiltered() {
-            let colecao = _.orderBy(this.times, this.order.keys, this.order.sort)
+            let colecao = _.orderBy(this.times, this.order.keys, this.order.sort);
 
             return _.filter(colecao, item => {
                 this.filter = this.filter.toLowerCase();

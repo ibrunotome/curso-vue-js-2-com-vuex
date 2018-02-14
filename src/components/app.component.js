@@ -11,10 +11,10 @@ export default {
         <div class="row">
             <div class="col-md-12">
                 <h3>Campeonato brasileiro série A - 2016</h3>
-                <div v-if="view == 'tabela'">
+                <div v-show="view == 'tabela'">
                     <time-list></time-list>
                 </div>
-                <div v-else>
+                <div v-show="view == 'novoJogo'">
                    <time-jogo></time-jogo>
                 </div>
             </div>
@@ -23,7 +23,7 @@ export default {
     `,
     data() {
         return {
-            view: 'novo-jogo'
+            view: 'tabela'
         }
     },
     methods: {
