@@ -38,6 +38,9 @@ export default {
             </table>
         </div>
     `,
+    created() {
+      store.dispatch('load-times');
+    },
     data() {
         return {
             order: {
