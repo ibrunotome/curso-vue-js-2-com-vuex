@@ -5,7 +5,7 @@ import {Time} from './time';
 Vue.use(Vuex);
 
 const state = {
-    view: 'tabela',
+    view: 'zona',
     times: [
         new Time('Palmeiras', require('./assets/palmeiras_60x60.png')),
         new Time('Flamengo', require('./assets/flamengo_60x60.png')),
@@ -31,5 +31,9 @@ const state = {
 };
 
 export default new Vuex.Store({
-    state
+    state,
+    getters: {
+        timesLibertadores: state => state.times.slice(0, 6),
+        timesRebaixados: state => state.times.slice(16, 20),
+    }
 });
