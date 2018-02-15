@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import event from '../event';
 import store from '../store';
 
 export default {
@@ -51,8 +50,7 @@ export default {
     },
     methods: {
         showNovoJogo() {
-            event.$emit('show-time-novo-jogo');
-            event.$emit('get-times', this.times);
+            store.commit('show-time-novojogo')
         },
         sortBy(coluna) {
             this.order.keys = coluna;

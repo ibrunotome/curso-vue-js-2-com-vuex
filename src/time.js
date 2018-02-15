@@ -1,5 +1,6 @@
 export class Time {
-  constructor(nome, escudo) {
+  constructor(id, nome, escudo) {
+    this.id = id;
     this.nome = nome;
     this.escudo = escudo;
 
@@ -15,7 +16,7 @@ export class Time {
   }
 
   fimJogo(timeAdversario, gols, golsAdversario) {
-    if (gols == golsAdversario) {
+    if (gols === golsAdversario) {
       this.updateInfo(1, gols, golsAdversario);
       timeAdversario.updateInfo(1, golsAdversario, gols);
     } else {
