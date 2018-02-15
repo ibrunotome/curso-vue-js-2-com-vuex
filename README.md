@@ -1,6 +1,10 @@
-# vuex2
+# Vue 2.0 com Vuex
 
-> A Vue.js project
+# Curso
+
+O Vuex é uma biblioteca que trabalha com manutenção de estado da aplicação implementando os conceitos da Fonte Única da Verdade. Ele faz parte do mundo Vue.js e é essencial para construir aplicações front-end baseadas em componentes. Neste curso iremos conhecer os novos conceitos principais da versão 2.0.
+
+[https://www.schoolofnet.com/curso-vue-20-com-vuex/](https://www.schoolofnet.com/curso-vue-20-com-vuex/)
 
 ## Build Setup
 
