@@ -37,6 +37,9 @@ export default {
             </form>
         </div>
     `,
+    mounted() {
+        this.initJogo(store.state.times);
+    },
     data() {
         return {
             novoJogo: {
@@ -50,9 +53,6 @@ export default {
                 }
             }
         }
-    },
-    mounted() {
-        this.initJogo(store.state.times);
     },
     methods: {
         fimJogo() {

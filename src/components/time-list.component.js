@@ -4,10 +4,6 @@ import store from '../store';
 export default {
     template: `
         <div>
-            <a href="#"
-               class="btn btn-primary"
-               @click.prevent="showNovoJogo">Novo jogo</a>
-            <br><br>
             <input type="text"
                    class="form-control"
                    autofocus
@@ -22,7 +18,7 @@ export default {
                 </tr>
                 </thead>
                 <tbody>
-                <tr v-for="time in timesFiltered">
+                <tr v-for="(time, index) in timesFiltered" :class="{'bg-success': index < 3, 'bg-warning': index > 2 && index < 6, 'bg-danger': index > 15}">
                     <td>
                         <img :src="time.escudo"
                              height="30px"
@@ -39,7 +35,7 @@ export default {
         </div>
     `,
     created() {
-      store.dispatch('load-times');
+        store.dispatch('load-times');
     },
     data() {
         return {
@@ -52,9 +48,6 @@ export default {
         }
     },
     methods: {
-        showNovoJogo() {
-            store.commit('show-time-novojogo')
-        },
         sortBy(coluna) {
             this.order.keys = coluna;
             this.order.sort = this.order.sort === 'desc' ? 'asc' : 'desc';
