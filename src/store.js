@@ -17,7 +17,6 @@ const mutations = {
     },
     update(state, time) {
         let index = state.times.findIndex(element => time.id === element.id);
-
         if (index !== -1) {
             state.times[index] = time;
         }
@@ -29,7 +28,7 @@ const mutations = {
         state.view = 'novoJogo';
     },
     'show-time-zona'(state) {
-        state.view = 'zona'
+        state.view = 'zona';
     }
 };
 
