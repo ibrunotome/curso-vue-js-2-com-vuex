@@ -1,5 +1,3 @@
-import event from '../event';
-
 export default {
     template: `
         <div>
@@ -50,11 +48,6 @@ export default {
                 }
             }
         }
-    },
-    mounted() {
-        event.$on('get-times', (times) => {
-            this.initJogo(times);
-        })
     },
     methods: {
         fimJogo() {
